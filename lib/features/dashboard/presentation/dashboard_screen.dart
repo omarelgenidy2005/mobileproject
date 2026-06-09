@@ -7,6 +7,7 @@ import '../../../core/navigation/constants/route_paths.dart';
 import '../../../features/workout/presentation/next_workout_report_screen.dart';
 import '../../../features/history/providers/history_provider.dart';
 import '../../../features/workout/services/ai_prediction_service.dart';
+import '../services/pdf_report_service.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -80,6 +81,41 @@ class DashboardScreen extends StatelessWidget {
                       );
                     }
                   ),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+        Card(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Icon(Icons.picture_as_pdf, color: Theme.of(context).colorScheme.primary),
+                    const SizedBox(width: 8),
+                    Text('Monthly Report', style: Theme.of(context).textTheme.titleMedium),
+                  ],
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'Generate a PDF summary of your workouts for this month.',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                const SizedBox(height: 12),
+                SizedBox(
+                  width: double.infinity,
+                  child: FilledButton.icon(
+                    onPressed: () async {
+                      final historyProvider = context.read<HistoryProvider>();
+                      await PdfReportService.generateMonthlyReport(historyProvider.sessions);
+                    },
+                    icon: const Icon(Icons.download),
+                    label: const Text('Generate PDF Report'),
+                  ),
+                ),
               ],
             ),
           ),
