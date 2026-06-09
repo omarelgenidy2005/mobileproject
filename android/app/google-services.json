@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "434480421710",
+    "project_id": "ash-92101",
+    "storage_bucket": "ash-92101.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:434480421710:android:35dcd310075caa56dd1c1f",
+        "android_client_info": {
+          "package_name": "com.example.workout_tracker_3ash"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOBq-ztOBNzRzeNHylpbAdvYCc3nkH2iQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
